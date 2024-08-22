@@ -141,6 +141,7 @@ def update_hosts_file(instances, action="add"):
                 hosts_file.write(f"{instance.ip} {dns}\n")
             hosts_file.write(marker_end)
         else:  # Remove entries
+            in_block = False
             for line in lines:
                 if line == marker_start:
                     in_block = True
